@@ -1,0 +1,68 @@
+/* styles.css */
+
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    background: url('https://media.forgecdn.net/avatars/thumbnails/270/152/256/256/637244088295655410.png') no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    color: #333;
+}
+
+.container {
+    background: url('https://media.forgecdn.net/avatars/564/854/637921747260576457.png') no-repeat center center;
+    background-size: cover; /* Stretch the texture to cover the container */
+    padding: 30px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    max-width: 500px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.9); /* Slight white overlay for readability */
+    position: relative; /* Maintain position context */
+    overflow: hidden; /* Prevent content overflow */
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 15px;
+}
+
+p {
+    color: #666;
+    margin: 10px 0;
+}
+
+.credits {
+    text-align: left;
+    font-size: 0.9em;
+}
+
+.credits a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.credits a:hover {
+    text-decoration: underline;
+}
+
+a.download-link {
+    display: inline-block;
+    padding: 12px 24px;
+    color: #ffffff;
+    background-color: #007bff;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+a.download-link:hover {
+    background-color: #0056b3;
+}
