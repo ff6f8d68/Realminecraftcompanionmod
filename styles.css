@@ -76,3 +76,11 @@ a.download-link:hover, .download-button:hover {
     background-color: #2A2A2A;
     transform: scale(1.05);
 }
+ul.features-list {
+            list-style-type: square;
+            padding-left: 20px;
+        }
+
+        ul.features-list li {
+            margin-bottom: 10px;
+        }
