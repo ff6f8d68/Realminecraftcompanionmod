@@ -3,104 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Forum Topic - Real Minecraft Companion Mod</title>
+    <title>Forum</title>
     <link rel="stylesheet" href="styles.css">
-    <style>
-        .topic-title {
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
-        .post {
-            border-bottom: 1px solid #ddd;
-            padding: 10px 0;
-        }
-        .post:last-child {
-            border-bottom: none;
-        }
-        .post-author {
-            font-weight: bold;
-        }
-        .post-content {
-            margin-top: 5px;
-        }
-        .new-post-form {
-            margin-top: 20px;
-        }
-        .new-post-form textarea {
-            width: 100%;
-            height: 100px;
-            margin-bottom: 10px;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        .new-post-form input[type="submit"] {
-            background-color: #28a745;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        .new-post-form input[type="submit"]:hover {
-            background-color: #218838;
-        }
-    </style>
 </head>
 <body>
     <div class="container">
-        <h1 class="topic-title">Discussion about Real Minecraft Companion Mod</h1>
-
-        <div id="posts">
-            <!-- Example posts -->
-            <div class="post">
-                <div class="post-author">User1</div>
-                <div class="post-content">This mod is amazing! Can't wait to see future updates.</div>
-            </div>
-            <div class="post">
-                <div class="post-author">User2</div>
-                <div class="post-content">I encountered a bug where the companion disappears. Anyone else?</div>
-            </div>
-            <!-- More posts will be added here dynamically -->
-        </div>
-
-        <div class="new-post-form">
-            <h2>New Post</h2>
-            <form id="postForm">
-                <textarea id="postContent" placeholder="Write your post here..."></textarea>
-                <input type="submit" value="Submit">
+        <h1>Forum</h1>
+        <div class="create-topic">
+            <h2>Create a New Topic</h2>
+            <form id="topic-form">
+                <input type="text" id="title" placeholder="Title" required><br>
+                <textarea id="content" placeholder="Content" required></textarea><br>
+                <button type="submit">Create Topic</button>
             </form>
+        </div>
+        <div class="topics">
+            <h2>Topics</h2>
+            <ul id="topics-list"></ul>
         </div>
     </div>
 
-    <script>
-        document.getElementById('postForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            
-            var content = document.getElementById('postContent').value;
-            if (content.trim() === '') {
-                alert('Please write something before submitting.');
-                return;
-            }
-
-            var postContainer = document.getElementById('posts');
-            var newPost = document.createElement('div');
-            newPost.classList.add('post');
-
-            var author = document.createElement('div');
-            author.classList.add('post-author');
-            author.textContent = 'You'; // This would typically be replaced with the actual user's name
-
-            var postContent = document.createElement('div');
-            postContent.classList.add('post-content');
-            postContent.textContent = content;
-
-            newPost.appendChild(author);
-            newPost.appendChild(postContent);
-            postContainer.appendChild(newPost);
-
-            document.getElementById('postContent').value = '';
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
