@@ -34,10 +34,22 @@
                 var modLink = selectedOS.mod;
                 
                 // Store these links in a way that they can be accessed by the buttons
-                document.getElementById('mod-btn').setAttribute('href', modLink);
-                document.getElementById('backend-btn').setAttribute('href', backendLink);
-                document.getElementById('mod-btn').style.display = 'inline-block';
-                document.getElementById('backend-btn').style.display = 'inline-block';
+                var modBtn = document.getElementById('mod-btn');
+                var backendBtn = document.getElementById('backend-btn');
+                
+                modBtn.setAttribute('href', modLink);
+                backendBtn.setAttribute('href', backendLink);
+                
+                // Update button text based on OS
+                if (os === 'windows') {
+                    backendBtn.textContent = 'Download Backend .exe';
+                } else {
+                    backendBtn.textContent = 'Download Backend .sh';
+                }
+
+                // Show the buttons
+                modBtn.style.display = 'inline-block';
+                backendBtn.style.display = 'inline-block';
             } else {
                 alert('Please select an operating system.');
             }
