@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <audio id="sound1" src="your-sound.mp3" preload="auto"></audio>
     <div class="container">
         <h1>Real Minecraft Companion Mod</h1>
         <p>Real Minecraft Companion Mod Download (recoded)</p>
@@ -28,8 +29,8 @@
                 <li><strong>Compatibility:</strong> Compatible with other popular mods, enhancing your Minecraft experience without conflicts.</li>
                 <li><strong>Regular Updates:</strong> Frequent updates with new features, bug fixes, and improvements based on user feedback.</li>
             </ul>
-            <a onclick="playSound('assets_minecraft_sounds_random_click.mp3')" href="Download.html" class="download-link">Download</a>
-            <a onclick="playSound('assets_minecraft_sounds_random_click.mp3')" href="forum.html" class="download-link">Forumc</a>
+            <a onclick="document.getElementById('sound1').play();" href="Download.html" class="download-link">Download</a>
+            <a onclick="document.getElementById('sound1').play();" href="forum.html" class="download-link">Forum</a>
         </section>
     </div>
     
