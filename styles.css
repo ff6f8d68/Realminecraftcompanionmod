@@ -55,8 +55,9 @@ p {
 a.download-link, .download-button {
     display: inline-block;
     padding: 20px 40px;
-    color: white;
-    background-color: #1A1A1A;
+    background: #999 url('https://i.ibb.co/rb2TWXL/bgbtn.png') center / cover;
+	image-rendering: pixelated;
+	border: 2px solid #000;
     text-decoration: none;
     border: 4px solid #000000;
     box-shadow: inset -4px -4px 0 #3D3D3D, inset 4px 4px 0 #FFFFFF;
