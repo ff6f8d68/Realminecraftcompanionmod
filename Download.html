@@ -5,18 +5,126 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Real Minecraft Companion Mod</title>
     <link rel="stylesheet" href="styles.css">
+    <script>
+        function playSound(url) {
+            var audio = new Audio(url);
+            audio.play();
+        }
+
+        function redirectToPage() {
+            var os = document.querySelector('input[name="os"]:checked').value;
+            var downloadLinks = {
+                'windows': {
+                    mod: 'placeholder.jar',
+                    backend: 'placeholder_win.exe'
+                },
+                'mac': {
+                    mod: 'placeholder.jar',
+                    backend: 'placeholder_mac.sh'
+                },
+                'linux': {
+                    mod: 'placeholder.jar',
+                    backend: 'placeholder_linux.sh'
+                }
+            };
+
+            var selectedOS = downloadLinks[os];
+            if (selectedOS) {
+                var backendLink = selectedOS.backend;
+                var modLink = selectedOS.mod;
+                
+                // Store these links in a way that they can be accessed by the buttons
+                document.getElementById('mod-btn').setAttribute('href', modLink);
+                document.getElementById('backend-btn').setAttribute('href', backendLink);
+                document.getElementById('mod-btn').style.display = 'inline-block';
+                document.getElementById('backend-btn').style.display = 'inline-block';
+            } else {
+                alert('Please select an operating system.');
+            }
+        }
+        
+        function selectOS(os) {
+            // Remove 'selected' class from all nav-boxes
+            document.querySelectorAll('.nav-box').forEach(box => {
+                box.classList.remove('selected');
+            });
+
+            // Add 'selected' class to the clicked nav-box
+            document.getElementById(os).classList.add('selected');
+            
+            // Check the OS and select the radio button
+            document.querySelector(`input[name="os"][value="${os}"]`).checked = true;
+            
+            // Trigger page redirection to update download buttons
+            redirectToPage();
+        }
+    </script>
+    <style>
+        .container {
+            text-align: center;
+            margin: 20px;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .nav-box {
+            border: 1px solid #ccc;
+            padding: 10px 20px;
+            margin: 0 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .nav-box:hover {
+            background-color: #007BFF;
+            color: white;
+        }
+
+        .selected {
+            background-color: #007BFF;
+            color: white;
+        }
+
+        .download-link {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin: 10px;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <h1>Download - Real Minecraft Companion Mod</h1>
-      <a onclick="playSound('assets_minecraft_sounds_random_click.mp3')" href="placeholder.zip" class="download-link">Download backend</a> 
-        <a onclick="playSound('assets_minecraft_sounds_random_click.mp3')" href="placeholder.jar" class="download-link">Download mod .jar</a>
-        <p>The download will be available soon. Please check back later.</p
-                                                                            
+
+        <div class="nav-container">
+            <div id="windows" class="nav-box" onclick="selectOS('windows')">Windows</div>
+            <div id="mac" class="nav-box" onclick="selectOS('mac')">Mac</div>
+            <div id="linux" class="nav-box" onclick="selectOS('linux')">Linux</div>
+        </div>
+
+        <a id="mod-btn" href="#" class="download-link hidden" download>Download Mod .jar</a>
+        <a id="backend-btn" href="#" class="download-link hidden" download>Download Backend</a>
+
+        <p>The download will be available soon. Please check back later.</p>
     </div>
+    
     <div class="footer-container">
         <footer>
-    
+            <!-- Footer content here -->
         </footer>
     </div>
 </body>
